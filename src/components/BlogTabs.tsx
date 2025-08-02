@@ -73,7 +73,7 @@ const BlogTabs: React.FC<BlogTabsProps> = ({ posts }) => {
           <article key={post.slug} className="group">
             <a
               href={`/${post.slug}/`}
-              className="block py-4 px-24 hover:bg-gray-50 transition-colors"
+              className="block py-4 px-4 hover:bg-gray-50 transition-colors text-left"
             >
               <time className="text-sm text-gray-500 mb-2 block">
                 {post.data.pubDate.toLocaleDateString("en-US", {
@@ -82,7 +82,7 @@ const BlogTabs: React.FC<BlogTabsProps> = ({ posts }) => {
                   day: "numeric",
                 })}
               </time>
-              <h2 className="text-lg font-medium text-gray-900 group-hover:text-gray-700 transition-colors">
+              <h2 className="text-lg font-medium text-gray-900 group-hover:text-gray-700 transition-colors w-full max-w-2xl truncate">
                 {post.data.title}
               </h2>
             </a>
@@ -92,11 +92,8 @@ const BlogTabs: React.FC<BlogTabsProps> = ({ posts }) => {
 
       {/* No Results */}
       {filteredPosts.length === 0 && (
-        <div className="text-center py-16">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">
-            このカテゴリには記事がありません
-          </h3>
-          <p className="text-gray-600">他のカテゴリをお試しください。</p>
+        <div className="text-center py-1 px-4">
+          <p className="text-gray-600">Coming soon...</p>
         </div>
       )}
     </div>

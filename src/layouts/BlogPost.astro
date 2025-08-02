@@ -8,7 +8,8 @@ type Props = CollectionEntry<'blog'>['data'] & {
   slug?: string;
 };
 
-const { title, description, pubDate, tags, slug } = Astro.props;
+const { title, pubDate, tags, slug } = Astro.props;
+const currentYear = new Date().getFullYear();
 
 // Calculate reading time (rough estimate: 300 characters per minute for Japanese)
 const content = await Astro.slots.render('default');
@@ -22,7 +23,7 @@ const readingTime = Math.ceil(textContent.length / 300);
       {/* Header section */}
       <header class="px-4 sm:px-6 lg:px-8 pt-12 pb-16">
         <div class="max-w-3xl mx-auto text-center">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-12 leading-[1.1] tracking-tight">
+          <h1 class="text-4xl sm:text-5xl lg:text-4xl font-bold text-gray-900 mb-12 leading-[1.1] tracking-tight">
             {title}
           </h1>
           
@@ -83,8 +84,8 @@ const readingTime = Math.ceil(textContent.length / 300);
         </div>
       </section>
       
-      {/* Footer navigation */}
-      <footer class="border-t border-gray-100 px-4 sm:px-6 lg:px-8 py-12">
+      {/* Navigation */}
+      <section class="border-t border-gray-100 px-4 sm:px-6 lg:px-8 py-12">
         <div class="max-w-3xl mx-auto text-center">
           <a 
             href="/" 
@@ -93,8 +94,17 @@ const readingTime = Math.ceil(textContent.length / 300);
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
-            ブログ一覧に戻る
+            Back to Blogs
           </a>
+        </div>
+      </section>
+      
+      {/* Footer */}
+      <footer class="border-t border-gray-200 px-4 sm:px-6 lg:px-8 py-8">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="text-gray-500 text-sm">
+            <p>&copy; {currentYear} shige.</p>
+          </div>
         </div>
       </footer>
     </article>

@@ -13,7 +13,8 @@ const currentYear = new Date().getFullYear();
 
 <Layout title="Home">
   <div class="min-h-screen bg-white flex flex-col">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
+    <div class="w-full flex justify-center px-4 sm:px-6 lg:px-8 py-8 flex-1">
+      <div class="w-full max-w-5xl">
       
       {/* Blog Content */}
       <main>
@@ -25,22 +26,22 @@ const currentYear = new Date().getFullYear();
         </div>
         
         {sortedPosts.length === 0 ? (
-          <div class="text-center py-16">
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">まだブログ記事はありません</h3>
-            <p class="text-gray-600">近日中に記事を公開予定です。</p>
+          <div class="text-center py-12">
+            <p class="text-gray-600">Coming soon...</p>
           </div>
         ) : (
           <BlogTabs client:load posts={sortedPosts} />
         )}
       </main>
       
+      </div>
     </div>
     
     {/* Footer */}
     <footer class="mt-auto pt-8 border-t border-gray-200">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         <div class="text-center text-gray-500 text-sm">
-          <p>&copy; {currentYear} shige. All rights reserved.</p>
+          <p>&copy; {currentYear} shige.</p>
         </div>
       </div>
     </footer>
