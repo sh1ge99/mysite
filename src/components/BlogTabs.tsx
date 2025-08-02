@@ -62,10 +62,6 @@ const BlogTabs: React.FC<BlogTabsProps> = ({ posts }) => {
         ))}
       </div>
 
-      {/* Post Count */}
-      <div className="text-sm text-gray-500">
-        {filteredPosts.length}件の記事
-      </div>
 
       {/* Blog Posts */}
       <div className="divide-y divide-gray-100">

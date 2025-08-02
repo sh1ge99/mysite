@@ -24,23 +24,19 @@ const LikeButton: React.FC<LikeButtonProps> = ({ postSlug }) => {
   }, [postSlug]);
 
   const handleLike = () => {
+    // 既にいいねしている場合は何もしない（1回制限）
+    if (isLiked) {
+      return;
+    }
+    
     setIsAnimating(true);
     
-    if (isLiked) {
-      // Unlike
-      const newLikes = Math.max(0, likes - 1);
-      setLikes(newLikes);
-      setIsLiked(false);
-      localStorage.setItem(`likes-${postSlug}`, newLikes.toString());
-      localStorage.setItem(`liked-${postSlug}`, 'false');
-    } else {
-      // Like
-      const newLikes = likes + 1;
-      setLikes(newLikes);
-      setIsLiked(true);
-      localStorage.setItem(`likes-${postSlug}`, newLikes.toString());
-      localStorage.setItem(`liked-${postSlug}`, 'true');
-    }
+    // いいね数を増やす（取り消し不可）
+    const newLikes = likes + 1;
+    setLikes(newLikes);
+    setIsLiked(true);
+    localStorage.setItem(`likes-${postSlug}`, newLikes.toString());
+    localStorage.setItem(`liked-${postSlug}`, 'true');
     
     // Reset animation after a short delay
     setTimeout(() => setIsAnimating(false), 300);
@@ -55,13 +51,14 @@ const LikeButton: React.FC<LikeButtonProps> = ({ postSlug }) => {
             group relative inline-flex items-center justify-center
             w-16 h-16 rounded-full transition-all duration-300 transform
             ${isLiked 
-              ? 'bg-red-50 hover:bg-red-100 text-red-500' 
-              : 'bg-gray-50 hover:bg-gray-100 text-gray-400 hover:text-red-400'
+              ? 'bg-red-50 text-red-500 cursor-default' 
+              : 'bg-gray-50 hover:bg-gray-100 text-gray-400 hover:text-red-400 cursor-pointer'
             }
             ${isAnimating ? 'scale-110' : 'hover:scale-105'}
             focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50
           `}
-          aria-label={isLiked ? 'いいねを取り消す' : 'いいねする'}
+          aria-label={isLiked ? 'いいね済み' : 'いいねする'}
+          disabled={isLiked}
         >
           {/* Heart Icon */}
           <svg 
