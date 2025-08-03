@@ -33,13 +33,9 @@ const readingTime = Math.ceil(textContent.length / 300);
               <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
                 Published
               </div>
-              <time class="text-sm text-gray-800 font-medium">
-                {pubDate.toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'short', 
-                  day: 'numeric' 
-                })}
-              </time>
+              <div class="text-sm text-gray-800 font-medium">
+                {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </div>
             </div>
             
             <div class="text-center">
@@ -69,7 +65,7 @@ const readingTime = Math.ceil(textContent.length / 300);
       <div class="border-t border-gray-200 mx-4 sm:mx-6 lg:mx-8"></div>
       
       {/* Main content */}
-      <main class="px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+      <main class="px-4 sm:px-6 lg:px-8 pt-4 pb-4">
         <div class="max-w-3xl mx-auto">
           <div class="prose prose-xl prose-gray max-w-none">
             <slot />
