@@ -1,6 +1,6 @@
 ---
 import Layout from './Layout.astro';
-import LikeButton from '../components/LikeButton';
+import OGPRenderer from '../components/OGPRenderer';
 import type { CollectionEntry } from 'astro:content';
 
 type Props = CollectionEntry<'blog'>['data'] & {
@@ -69,7 +69,7 @@ const readingTime = Math.ceil(textContent.length / 300);
       <div class="border-t border-gray-200 mx-4 sm:mx-6 lg:mx-8"></div>
       
       {/* Main content */}
-      <main class="px-4 sm:px-6 lg:px-8 pt-16 pb-16">
+      <main class="px-4 sm:px-6 lg:px-8 pt-8 pb-16">
         <div class="max-w-3xl mx-auto">
           <div class="prose prose-xl prose-gray max-w-none">
             <slot />
@@ -77,12 +77,8 @@ const readingTime = Math.ceil(textContent.length / 300);
         </div>
       </main>
       
-      {/* Like section */}
-      <section class="border-t border-gray-100 px-4 sm:px-6 lg:px-8 py-8">
-        <div class="max-w-3xl mx-auto">
-          <LikeButton client:load postSlug={slug || title} />
-        </div>
-      </section>
+      {/* OGP Renderer */}
+      <OGPRenderer client:load />
       
       {/* Navigation */}
       <section class="border-t border-gray-100 px-4 sm:px-6 lg:px-8 py-12">
@@ -168,6 +164,10 @@ const readingTime = Math.ceil(textContent.length / 300);
     line-height: 1.7;
   }
   
+  .prose ul li::marker {
+    content: "・";
+  }
+  
   .prose a {
     @apply text-gray-900 underline hover:no-underline transition-all;
   }
@@ -196,5 +196,32 @@ const readingTime = Math.ceil(textContent.length / 300);
   
   .prose th {
     @apply bg-gray-50 font-semibold text-gray-900;
+  }
+  
+  /* Note Block Styles */
+  .prose .note-block {
+    @apply my-6 p-4 rounded-lg border-l-4;
+  }
+  
+  .prose .note-block-info {
+    @apply bg-blue-50 border-blue-400;
+  }
+  
+  .prose .note-block-info::before {
+    content: "Note";
+    @apply block font-semibold text-blue-800 mb-2 text-sm;
+  }
+  
+  .prose .note-block p {
+    @apply mb-0 text-blue-900;
+  }
+  
+  .prose .note-block p:last-child {
+    @apply mb-0;
+  }
+  
+  /* OGP Card Styles */
+  .ogp-link-container {
+    @apply my-6;
   }
 </style>
