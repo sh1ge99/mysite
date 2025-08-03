@@ -1,5 +1,5 @@
 ---
-title: "GitHubアカウントを使い分ける方法"
+title: "GitHubアカウントを使い分けたい"
 pubDate: 2025-08-03
 tags: ["Dev"]
 ---
