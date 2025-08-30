@@ -193,20 +193,3 @@ git remote -v
 origin  git@github-work:username/repository.git (fetch)
 origin  git@github-work:username/repository.git (push)
 ```
-
-## まとめ
-
-これでとりあえず GitHub の複数アカウントの運用はできそうです。
-もっと効率的な切り替え方法があれば、また更新してい来たいと思います。
-
-## 参考文献
-
-- [https://zenn.dev/taichifukumoto/articles/how-to-use-multiple-github-accounts](https://zenn.dev/taichifukumoto/articles/how-to-use-multiple-github-accounts)
-
-- [https://docs.github.com/ja/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts](https://docs.github.com/ja/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)
-
-- [https://docs.github.com/ja/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/ja/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-- [https://zenn.dev/hr0t15/articles/2f65b5a776b45c](https://zenn.dev/hr0t15/articles/2f65b5a776b45c)
-
-- [https://qiita.com/shungo_m/items/387d70b1645ae03435b5](https://qiita.com/shungo_m/items/387d70b1645ae03435b5)
