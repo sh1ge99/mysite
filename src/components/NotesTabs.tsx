@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 
-interface BlogPost {
+interface NotePost {
   slug: string;
   data: {
     title: string;
@@ -10,8 +10,8 @@ interface BlogPost {
   };
 }
 
-interface BlogTabsProps {
-  posts: BlogPost[];
+interface NotesTabsProps {
+  posts: NotePost[];
 }
 
 // Define categories - simple Dev/Self classification
@@ -21,7 +21,7 @@ const categories = [
   { id: "self", name: "Self" },
 ];
 
-const BlogTabs: React.FC<BlogTabsProps> = ({ posts }) => {
+const NotesTabs: React.FC<NotesTabsProps> = ({ posts }) => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   // Filter posts based on selected category
@@ -63,7 +63,7 @@ const BlogTabs: React.FC<BlogTabsProps> = ({ posts }) => {
       </div>
 
 
-      {/* Blog Posts */}
+      {/* Note Posts */}
       <div className="divide-y divide-gray-100">
         {filteredPosts.map((post) => (
           <article key={post.slug} className="group">
@@ -96,4 +96,4 @@ const BlogTabs: React.FC<BlogTabsProps> = ({ posts }) => {
   );
 };
 
-export default BlogTabs;
+export default NotesTabs;

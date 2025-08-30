@@ -3,7 +3,7 @@ import Layout from './Layout.astro';
 import OGPRenderer from '../components/OGPRenderer';
 import type { CollectionEntry } from 'astro:content';
 
-type Props = CollectionEntry<'blog'>['data'] & {
+type Props = CollectionEntry<'note'>['data'] & {
   title: string;
   slug?: string;
 };
@@ -86,7 +86,7 @@ const readingTime = Math.ceil(textContent.length / 300);
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
-            Back to Blogs
+            Back to Notes
           </a>
         </div>
       </section>
@@ -128,19 +128,25 @@ const readingTime = Math.ceil(textContent.length / 300);
   }
   
   .prose code {
-    @apply bg-gray-100 text-gray-900 px-2 py-1 rounded text-sm font-mono;
+    @apply bg-gray-100 text-gray-800 px-2 py-1 rounded font-mono;
     font-size: 0.875em;
+    font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', monospace;
   }
   
   .prose pre {
-    @apply bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto my-8;
-    font-size: 0.875rem;
+    @apply bg-gray-50 text-gray-800 p-6 rounded-lg overflow-x-auto my-6;
+    font-size: 14px;
     line-height: 1.6;
+    border: 1px solid #e5e7eb;
+    font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', monospace;
+    position: relative;
   }
   
   .prose pre code {
-    @apply bg-transparent text-gray-100 p-0;
+    @apply bg-transparent text-gray-800 p-0;
     color: inherit;
+    font-size: inherit;
+    font-family: inherit;
   }
   
   .prose blockquote {
